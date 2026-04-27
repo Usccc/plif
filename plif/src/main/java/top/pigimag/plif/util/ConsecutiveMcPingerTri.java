@@ -14,7 +14,7 @@ import top.pigimag.plif.BasePingResponse;
  * This class is useful for measuring average latency and comparing high/low
  * values when the server responds consistently.
  *
- * @since 1.0
+ * @since 0.1.0
  */
 public class ConsecutiveMcPingerTri extends McPingerTri {
     private static final int DEFAULT_PING_COUNT = 10;

@@ -94,7 +94,7 @@ public class ConsecutiveMcPingerTri extends McPingerTri {
             });
             t.setName("ConsecutiveMcPinger-pingsasync-"+t.threadId());
             t.setDaemon(true);
-            t.run();
+            t.start();
         }
         for (int i = 0; i < pingNum; i++) {
             c.apply(Optional.of(ping()));

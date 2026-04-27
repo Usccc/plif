@@ -5,10 +5,10 @@ import java.io.Serializable;
 /**
  * Base class for ping responses, containing common fields.
  *
- * @since 1.0
+ * @since 0.1.0
  */
 public abstract class BasePingResponse implements Serializable {
-    private static final long serialVersionUID = 1776586437L;
+    //private static final long serialVersionUID = 1776586437L;
 
     protected final String host;
     protected final int port;

@@ -78,7 +78,7 @@ public class ConsecutiveMcPingerTri extends McPingerTri {
      * @return void
      * @throws IOException if any ping attempt fails.
      */
-    public void pings(Function<Optional<BasePingResponse>,Void> c,boolean asnyc) throws IOException {
+    public void pings(Function<Optional<BasePingResponse>,Void> c,boolean async) throws IOException {
         if (asnyc) {
             var t = new Thread(()->{
                 for (int i = 0; i < pingNum; i++) {
@@ -92,7 +92,7 @@ public class ConsecutiveMcPingerTri extends McPingerTri {
                     }
                 }
             });
-            t.setName("ConsecutiveMcPinger-pingsasnyc-"+t.threadId());
+            t.setName("ConsecutiveMcPinger-pingsasync-"+t.threadId());
             t.setDaemon(true);
             t.run();
         }

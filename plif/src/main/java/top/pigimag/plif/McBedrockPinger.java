@@ -327,14 +327,14 @@ public class McBedrockPinger {
     }
 
     /**
-     * Call the {@link top.pigimag.pilf.McBedrockPinger#ping() ping()} asnyc.
+     * Call the {@link top.pigimag.pilf.McBedrockPinger#ping() ping()} async.
      * 
      * @return A CompletableFuture.
      * @see CompletableFuture
      * @see McBedrockPinger#ping()
      * @since 1.0
      */
-    public CompletableFuture<PingResponse> asnycPing() {
+    public CompletableFuture<PingResponse> asyncPing() {
         return CompletableFuture.supplyAsync(
             ()->{
                 try {

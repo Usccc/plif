@@ -22,7 +22,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * The Bedrock ping protocol is a lightweight UDP exchange that returns an
  * answer packet with several status fields separated by semicolons.
  *
- * @since 1.0
+ * @since 0.1.0
  */
 public class McBedrockPinger {
     private final InetAddress host;
@@ -100,7 +100,7 @@ public class McBedrockPinger {
          * @param gamemode The gamemode(e.g. Survial)
          * @param gamemodeID The id of the gamemode(e.g. 1 (-- survial))
          * 
-         * @since 1.0
+         * @since 0.1.0
          */
         public PingResponse(
                 String host,
@@ -179,22 +179,12 @@ public class McBedrockPinger {
             return gamemodeID;
         }
     }
-
-    /**
-     * The ping method.
-     * 
-     * @return A PingResponse
-     * @throws IOException if an I/O error occurs during ping
-     * @see PingResponse
-     * @see McBedrockPinger#asnycPing()
-     * @since 1.0
-     */
     /**
      * Perform a Bedrock ping request synchronously and parse the server response.
      *
      * @return parsed ping response details.
      * @throws IOException if a networking error occurs or the UDP payload cannot be read.
-     * @since 1.0
+     * @since 0.1.0
      */
     public PingResponse ping() throws IOException {
         byte[] request = buildPingRequest();
@@ -297,7 +287,6 @@ public class McBedrockPinger {
         // Standard format does not include player list in ping response
         String gamemode = parts[8];
         byte gamemodeID = (byte) parseInt(parts[9], "gamemodeID");
-        //discard 11&12&13.
 
         return new PingResponse(
                 host.getHostAddress(),
@@ -332,7 +321,7 @@ public class McBedrockPinger {
      * @return A CompletableFuture.
      * @see CompletableFuture
      * @see McBedrockPinger#ping()
-     * @since 1.0
+     * @since 0.1.0
      */
     public CompletableFuture<PingResponse> asyncPing() {
         return CompletableFuture.supplyAsync(

@@ -20,7 +20,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * This implementation is intentionally lightweight and avoids a third-party
  * JSON library by using a minimal string extraction strategy.
  *
- * @since 1.0
+ * @since 0.1.0
  */
 public class McJavaPinger {
     private final InetAddress host;
@@ -62,7 +62,7 @@ public class McJavaPinger {
     /**
      * The class describes the response of ping.
      *
-     * @since 1.0
+     * @since 0.1.0
      * @see McJavaPinger
      */
     public static final class PingResponse extends BasePingResponse {
@@ -87,7 +87,7 @@ public class McJavaPinger {
          * @param favicon The favicon.
          * @param rawResponse The raw response.
          *
-         * @since 1.0
+         * @since 0.1.0
          */
         public PingResponse(
                 String host,
@@ -133,23 +133,14 @@ public class McJavaPinger {
             return favicon;
         }
     }
-
-    /**
-     * The ping method.
-     *
-     * @return A PingResponse
-     * @throws IOException if an I/O error occurs during ping
-     * @see PingResponse
-     * @see McJavaPinger#asyncPing()
-     * @since 1.0
-     */
+    
     /**
      * Perform a synchronous Java edition ping request.
      *
      * @return parsed ping response details.
      * @throws IOException if an I/O error occurs during the handshake, status query,
      *                     or ping exchange.
-     * @since 1.0
+     * @since 0.1.0
      */
     public PingResponse ping() throws IOException {
         try (Socket socket = new Socket(host, port)) {
@@ -386,13 +377,7 @@ public class McJavaPinger {
      * @return A CompletableFuture.
      * @see CompletableFuture
      * @see McJavaPinger#ping()
-     * @since 1.0
-     */
-    /**
-     * Perform the ping asynchronously using the common {@link java.util.concurrent.ForkJoinPool}.
-     *
-     * @return a future containing the ping response.
-     * @since 1.0
+     * @since 0.1.0
      */
     public CompletableFuture<PingResponse> asyncPing() {
         return CompletableFuture.supplyAsync(() -> {

@@ -14,7 +14,7 @@ import top.pigimag.plif.McJavaPinger;
  * This class first tries to ping the server using the Bedrock protocol, and if
  * that fails it falls back to the Java edition server list ping.
  *
- * @since 1.0
+ * @since 0.1.0
  * @see top.pigimag.plif.McBedrockPinger
  * @see top.pigimag.plif.McJavaPinger
  */
